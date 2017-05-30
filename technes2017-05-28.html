@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Title</title>
+    <meta charset="utf-8">
+    <link href="remarks/themes/remark-dark-em.css" rel="stylesheet" media="all" type="text/css"/>
+    <style>
+      @import url(https://fonts.googleapis.com/css?family=Yanone+Kaffeesatz);
+      @import url(https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic);
+      @import url(https://fonts.googleapis.com/css?family=Ubuntu+Mono:400,700,400italic);
+    
+      body { font-family: 'Droid Serif'; }
+      h1, h2, h3 {
+        font-family: 'Yanone Kaffeesatz';
+        font-weight: normal;
+      }
+      .remark-code, .remark-inline-code { font-family: 'Ubuntu Mono'; }
+    </style>
+  </head>
+  <body>
+    <textarea id="source">
+
+title: preTechnes
+description: emchateau, UdeM
+theme: remarks/theme/remark-dark-em.css
+name: inverse
+layout: true
+class: inverse
+
+---
+template: inverse
+class: center middle
+
+# L’encyclopédie
+
+## Emmanuel Château-Dutier | Congrès SCHN 2017
+
+![](images/W0Pd1RJ.png)
+
+???
+
+The Technès partnership inscribed itself almost immediately in the context of digital publishing. This platform materializes the project in a way by hosting most of the products of the research. Notably a database and a digital encyclopedia.
+
+- Everyone can understand the advantage and ease of a digital platform for a project conducted at the intercontinental scale.
+- It will provide a common workplace and bring together various museum institutions and academic centers in France, Canada, and Switzerland.
+
+Obviously, the development of such a platform implies the implementation of a common data model and to  work on the structuring and the editorialization of the content.
+
+Within the partnership, the Digital Encyclopedia of the Technès project is conducted under the responsibility of Rémy Besson, with several researchers in partnership with IdéeClic. A digital service company specializing in heritage and museums.
+
+---
+
+template: inverse
+class: center middle
+
+# The application perimeter
+
+???
+
+### A digital encyclopedia
+
+The digital and evolutive Encyclopedia, accessible online, will allow through texts written by the researchers and collaborators of the partnership, to constitute a new and necessary source of knowledge. In the same time, it will valorize the results of the research members of the partnership.
+
+Doing this work we had in mind the idea to consider what could be an Encyclopedia in the era of the digital. And as the project was going on for more than 7 years, how to keep things open enough to carry on the project and welcome as much as possible new developments and use cases.
+
+---
+layout: false
+
+# Content of the application
+
+- ### artefacts descriptions (cameras, lenses, films, etc.)
+
+- ### topic notes
+
+- ### encyclopedic entries
+
+- ### advanced search, etc.
+
+???
+
+One first aim of this application is to gather factual information on artifacts held in different conservation institutions in a common infrastructure to constitute a reference source in the field of cinematographic technical history.
+
+The other side of the project consists to build a dynamical infrastructure to publish, in link with this assets, encyclopedic entries on the field.
+
+- descriptive files
+- notes on special subject
+- encyclopedic entries
+- common web archive features like advanced search, etc.
+
+---
+
+# Structure de l’application
+
+![](images/structure.png)
+
+---
+template: inverse
+class: center middle
+
+# Data modeling and implementation
+
+???
+
+A current on going building process. We are currently engaged in the process of building the foundations of the application.
+
+---
+
+background-image: url(images/technesDataModel.jpg)
+
+# The Data model
+
+???
+
+### Modeling
+
+#### The Data model
+
+Very early in the project, the definition of the data model of the project as been knowledge as a crucial part of the project. With a partnership going for more than 7 years, we needed to pose strong paths in the structuration of the data.
+
+This data model was defined focussing on the various artefacts we has to deal with and their technical caracteristics.
+
+- artefacts spécialisation : camera, lens, shutters, films as material objects, technical documentation, etc.
+- But also editorial contents produced along the project : knowledge notes, multimedia contents (3D modelisation, photos, films produced in the context of the project)
+
+These various contents are currently described with a relational model expressed in UML and will be implemented with mySql. Provided description reach a very strong granularity.
+
+---
+
+# The semantic web and LOD perspective
+
+- ### mapping to CIDOC-CRM
+
+- ### use of controlled vocabularies
+
+???
+
+#### The semantic web and LOD perspective
+
+The Technès data model was thought in the Linked Open Data perspective. The Linked Open Data is a manner to use the web architecture to publish and link data on the web using the semantic web technologies.
+
+As the project involves various patrimonial institutions engaged in broad digitizations programs that could want to share their data with the europeean digital library Europeana we find convenient to adopt a data model broadly in use in the patrimonial community.
+
+At first we wanted to develop an application of CIDOC conceptual model. A conceptual model developed by the documentation group of The International Council of Museum. But because this model was at first define towards data integration, its is very developed. Most application needs to derived an application model from CIDOC ontology.
+
+For calendar issue, we had to renonce to implement directly a relational model and to adopt the more classical relational model we presented. But it was conceived in the perspective of a mapping to CIDOC-CRM is.
+
+---
+
+# The Technès vocabulary
+
+### Controlled vocabulary
+
+- ensure accurate description of the artefact
+- normalize the description terms
+- facilitate search request and rebound
+
+### How we are building the vocabulary
+
+- textual analysis
+- facets definition
+- building the terms hierarchy and preferred formed
+
+A review process in the community
+
+???
+
+#### The Vocabulary
+
+CIDOC conceptual reference model (ICOM) and its articulation with a dedicated vocabulary created in the context of the project.
+
+Using CIDOC-CRM as an ontology, supposed the identification of a dedicated vocabulary. As no vocabulary of this type existed in the specialized field of the cinematographic studies, we decided to built such a vocabulary.
+
+- accurate description of the artefact
+- normalize the description terms
+- facilitate search request and rebound
+
+How we are building the vocabulary
+
+- textual analysis
+- facets definition
+- building the terms hierarchy and preferred formed
+
+---
+
+# The application architecture
+
+- ### Drupal as an API
+- ### User defined implementation of the DB
+- ### Ginko webservice (for the SKOS vocabulary)
+- ### Forms, multiple web views, programming interfaces (OAI-PMH, API)
+
+???
+
+Implementation
+
+Ginko
+
+Interroperability
+
+---
+
+background-image: url(images/technesEdito.png)
+
+# The editorial flux
+
+.footnote[[full](https://www.lucidchart.com/documents/edit/c49e0597-5936-4d13-8fa0-519a93de4248)]
+
+???
+
+Users roles | Keep it open baby !
+
+Editorial flux for accuracy
+
+---
+template: inverse
+class: center middle
+
+
+# To create Digital narratives
+
+???
+
+Éditorialiser la base de données et mettre en œuvre une muséologie numérique.
+
+Manovich notion of database narratives
+
+Non linear story
+
+Researcher and text, allow them
+
+---
+
+# Editorial paths
+
+- ### **Montage-découpage (editing-cutting)**, André Gaudreault et Laurent Le Forestier
+- ### **Portabilité (portability)**, Gilles Mouëllic et Richard Bégin
+- ### **Bolex**, Benoît Turquety
+- ### **Métiers et techniques (crafts and techniques)**, Bérénice Bonhomme et Priska Morrissey
+- ### **Cinéma expérimental (experimental cinema)**, André Habib & Éric Thouvenel
+
+???
+
+# Editorial paths
+
+The first "editorial paths" Premiers parcours, conçus comme des parcours génériques.
+
+The first planned "editorial paths"
+
+- **Montage-découpage (editing-cutting)**, André Gaudreault et Laurent Le Forestier
+- **Portabilité (portability)**, Gilles Mouëllic et Richard Bégin
+- **Bolex**, Benoît Turquety
+- **Métiers et techniques (crafts and techniques)**, Bérénice Bonhomme et Priska Morrissey
+- **Cinéma expérimental (experimental cinema)**, André Habib & Éric Thouvenel
+
+---
+
+# The exhibition Builder
+
+### Dynamically linked to the DB
+
+### Reusable templates
+
+### 
+
+???
+
+Next phase will consist in building the interface for the exhibition builder. The idea here is to propose an interactive builder that could be use to manage and built various exhibition contents from a delimited number of templates.
+
+---
+
+template: inverse
+class: center middle
+
+# Conclusion
+
+???
+
+Projet initialement forgé dans le domaine de l’histoire du Cinéma et particulièrement de ses techniques.
+
+Implique une réflexion sur la production d’un outil qui accompagne le projet et son développement. Alimentation d’une base de données collaborative qui soit articulable.
+
+## Todo
+
+https://www.draw.io/?demo=1
+
+
+
+</textarea>
+    <script src="https://remarkjs.com/downloads/remark-latest.min.js">
+    </script>
+    <script>
+      var slideshow = remark.create();
+    </script>
+  </body>
+</html>
